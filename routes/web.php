@@ -54,7 +54,9 @@ Route::group(['middleware' => 'auth'],function(){
     
     //kadis
     Route::get('/kadis/dokumen','KadisController@index')->name('kadis-dokumen');
+    Route::get('/kadis/dokumentte','KadisController@download_index')->name('kadis-tte');
     Route::get('/kadis/statistik','KadisController@statistik')->name('kadis-statistik');
-    Route::get('/kadis/dokumen/terima/{id}','KadisController@terima');
+    Route::post('/kadis/dokumen/terima/{id}','KadisController@terima');
     Route::post('/kadis/dokumen/tolak/{id}','KadisController@tolak');
+    Route::get('/kadis/download/{id}','KadisController@download_bsre');
 });
