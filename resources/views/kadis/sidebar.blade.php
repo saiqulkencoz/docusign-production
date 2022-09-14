@@ -21,7 +21,8 @@
        <ul class="list-unstyled components">
           <li class="active">
              <a href="{{route('kadis-dokumen')}}" aria-expanded="false"><i class="fa fa-check-circle green_color"></i> <span>Verifikasi Dokumen</span></a>
-          </li>
+            </li>
+            <li><a href="{{route('kadis-tte')}}"><i class="fa fa-download orange_color2"></i> <span>Dokumen TTE</span></a></li>
           <li><a href="{{route('kadis-statistik')}}"><i class="fa fa-area-chart red_color"></i> <span>Statistik</span></a></li>
        </ul>
     </div>

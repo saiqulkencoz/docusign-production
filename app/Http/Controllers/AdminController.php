@@ -64,7 +64,6 @@ class AdminController extends Controller
         if (Storage::disk('public')->exists($data->pdf)) {
             Storage::delete('public/'.$data->pdf);
         }
-
         $file = $request->pdf;
         //save dokumen ke public path
         $namaFile = time() . rand(100, 999) . "." . $file->getClientOriginalExtension();
@@ -109,7 +108,7 @@ class AdminController extends Controller
     public function download_bsre($id)
     {
         $data = uploadpdf::find($id);
-        return Storage::download('public/'.$data->pdf);
+        return Storage::download('public/'.substr($data->pdf,0,-4).'_sign'.'.pdf');
     }
 
     public function statistik(Request $request)
@@ -150,9 +149,9 @@ class AdminController extends Controller
     public function cek_dokumen(Request $request)
     {
         $file = $request->pdf;
-        $response = Http::withBasicAuth('test', 'qwerty')
+        $response = Http::withBasicAuth('docusign', '1234!@#$')
             ->attach('signed_file', file_get_contents($file->path()), $file->getClientOriginalName())
-            ->post('http://103.211.82.148/api/sign/verify');
+            ->post('http://103.211.82.154/api/sign/verify');
         // dd($response['jumlah_signature']);
         if ($response['jumlah_signature'] != 0) {
             return redirect()->back()->with('Sukses', Arr::get($response->json(), 'notes'))

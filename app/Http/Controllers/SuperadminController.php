@@ -134,9 +134,8 @@ class SuperadminController extends Controller
     }
 
     public function cek_post(Request $request){
-        $response = Http::withBasicAuth('test','qwerty')
-                    ->get('103.211.82.148/api/user/status/'.$request->nik);
-        // dd($response->json());            
+        $response = Http::withBasicAuth('docusign','1234!@#$')
+                    ->get('103.211.82.154/api/user/status/'.$request->nik);            
         return redirect()->back()->with('Sukses',$response->json())
         ->with('NIK',$request->nik);            
     }

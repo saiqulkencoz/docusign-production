@@ -34,7 +34,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label>NIK</label>
-                                                    <input type="text" name="nip" placeholder="Masukkan NIP"
+                                                    <input type="text" name="nik" placeholder="Masukkan NIP"
                                                         class="form-control" value="{{ $user->nik }}" required
                                                         autocomplete="off">
                                                 </div>
@@ -51,37 +51,6 @@
                                                         <option value="admin">Admin</option>
                                                         <option value="kepala dinas">Kepala Dinas</option>
                                                     </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <script>
-                                                        $(document).ready(function() {
-                                                            $("#show_hide_password a").on('click', function(event) {
-                                                                event.preventDefault();
-                                                                if ($('#show_hide_password input').attr("type") == "text") {
-                                                                    $('#show_hide_password input').attr('type', 'password');
-                                                                    $('#show_hide_password i').addClass("fa-eye-slash");
-                                                                    $('#show_hide_password i').removeClass("fa-eye");
-                                                                } else if ($('#show_hide_password input').attr("type") == "password") {
-                                                                    $('#show_hide_password input').attr('type', 'text');
-                                                                    $('#show_hide_password i').removeClass("fa-eye-slash");
-                                                                    $('#show_hide_password i').addClass("fa-eye");
-                                                                }
-                                                            });
-                                                        });
-                                                    </script>
-                                                    <label>Password BSRE</label>
-                                                    <div class="input-group" id="show_hide_password">
-                                                        <input type="password" class="form-control" name="pass_bsre"
-                                                            placeholder="Masukkan Password BSRE" autocomplete="off"
-                                                            value="{{ $user->pass_bsre }}">
-                                                        <div class="input-group-append">
-                                                            <span class="input-group-text">
-                                                                <a href=""><i class="fa fa-eye-slash"
-                                                                        aria-hidden="true"></i></a></span>
-                                                        </div>
-                                                    </div>
-                                                    <small style="font-style: italic">*Masukkan hanya jika ingin membuat
-                                                        akun Kepala Dinas</small>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Instansi</label>

@@ -22,7 +22,7 @@
           <li class="active">
              <a href="{{route('adm-pengajuan')}}" aria-expanded="false"><i class="fa fa-file-pdf-o purple_color2"></i> <span>Input Pengajuan</span></a>
           </li>
-          <li><a href="{{route('adm-download')}}"><i class="fa fa-download orange_color"></i> <span>Download Pengajuan</span></a></li>
+          <li><a href="{{route('adm-download')}}"><i class="fa fa-download orange_color"></i> <span>Dokumen TTE</span></a></li>
           <li><a href="{{route('adm-statistik')}}"><i class="fa fa-area-chart red_color"></i> <span>Statistik</span></a></li>
           <li><a href="{{route('adm-cek')}}"><i class="fa fa-eye green_color"></i> <span>Cek Dokumen</span></a></li>
        </ul>

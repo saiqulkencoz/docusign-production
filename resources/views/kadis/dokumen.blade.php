@@ -133,8 +133,9 @@
                                                             <td>
                                                                 @if ($datapdf->status != 'Dokumen Disetujui')
                                                                     <div style="text-align:center">
-                                                                        <a href="/kadis/dokumen/terima/{{ $datapdf->id }}"
-                                                                            class="btn btn-success btn-sm">Terima</a>
+                                                                        <button type="button" class="btn cur-p btn-success"
+                                                                            data-toggle="modal"
+                                                                            data-target="#terima_{{ $datapdf->id }}">Terima</button>
                                                                         <button type="button" class="btn cur-p btn-danger"
                                                                             data-toggle="modal"
                                                                             data-target="#tolak_{{ $datapdf->id }}">Tolak</button>
@@ -175,6 +176,67 @@
                                                                                     <div class="form-group">
                                                                                         <label>Note</label>
                                                                                         <textarea class="form-control" rows="4" required name="note" placeholder="Masukkan Catatan">{{ $datapdf->note }}</textarea>
+                                                                                    </div>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="submit"
+                                                                                    class="btn btn-primary">Simpan</button>
+                                                                                <button type="button"
+                                                                                    class="btn btn-secondary"
+                                                                                    data-dismiss="modal">Close</button>
+                                                                            </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- Modal Terima-->
+                                                                <div class="modal fade" id="terima_{{ $datapdf->id }}"
+                                                                    tabindex="-1" role="dialog"
+                                                                    aria-labelledby="exampleModalLongTitle"
+                                                                    aria-hidden="true">
+                                                                    <div class="modal-dialog" role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title"
+                                                                                    id="exampleModalLongTitle">Masukkan Password BSRE
+                                                                                </h5>
+                                                                                <button type="button" class="close"
+                                                                                    data-dismiss="modal"
+                                                                                    aria-label="Close">
+                                                                                    <span aria-hidden="true">&times;</span>
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <form
+                                                                                    action="/kadis/dokumen/terima/{{ $datapdf->id }}"
+                                                                                    method="post">
+                                                                                    {{ csrf_field() }}
+                                                                                    <div class="form-group">
+                                                                                        <script>
+                                                                                            $(document).ready(function() {
+                                                                                                $("#show_hide_password a").on('click', function(event) {
+                                                                                                    event.preventDefault();
+                                                                                                    if ($('#show_hide_password input').attr("type") == "text") {
+                                                                                                        $('#show_hide_password input').attr('type', 'password');
+                                                                                                        $('#show_hide_password i').addClass("fa-eye-slash");
+                                                                                                        $('#show_hide_password i').removeClass("fa-eye");
+                                                                                                    } else if ($('#show_hide_password input').attr("type") == "password") {
+                                                                                                        $('#show_hide_password input').attr('type', 'text');
+                                                                                                        $('#show_hide_password i').removeClass("fa-eye-slash");
+                                                                                                        $('#show_hide_password i').addClass("fa-eye");
+                                                                                                    }
+                                                                                                });
+                                                                                            });
+                                                                                        </script>
+                                                                                        <label>Password BSRE</label>
+                                                                                        <div class="input-group" id="show_hide_password">
+                                                                                            <input type="password" class="form-control" name="pass_bsre" placeholder="Masukkan Password"
+                                                                                                required autocomplete="off">
+                                                                                            <div class="input-group-append">
+                                                                                                <span class="input-group-text">
+                                                                                                    <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a></span>
+                                                                                            </div>
+                                                                                        </div>
                                                                                     </div>
                                                                             </div>
                                                                             <div class="modal-footer">

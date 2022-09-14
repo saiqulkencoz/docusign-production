@@ -151,18 +151,6 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Password BSRE</label>
-                            <div class="input-group" id="show_hide_password">
-                                <input type="password" class="form-control" name="pass_bsre"
-                                    placeholder="Masukkan Password BSRE" autocomplete="off">
-                                <div class="input-group-append">
-                                    <span class="input-group-text">
-                                        <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a></span>
-                                </div>
-                            </div>
-                            <small style="font-style: italic">*Masukkan hanya jika ingin membuat akun Kepala Dinas</small>
-                        </div>
-                        <div class="form-group">
                             <label>Instansi</label>
                             <select class="form-control" name="instansi_id">
                                 @foreach ($instansi as $opt_instansi)
