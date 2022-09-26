@@ -45,7 +45,7 @@ class KadisController extends Controller
                 'tampilan' => 'visible',
                 'halaman' => 'terakhir',
                 'image' => 'false',
-                'linkQR' => 'https://docusign.batukota.go.id/storage/'.substr($dokumen->pdf,0,-4).'_sign'.'.pdf',
+                'linkQR' => 'https://docusign.batukota.go.id/sign/'.substr($dokumen->pdf,0,-4).'_sign'.'.pdf',
                 'xAxis' => '-50',
                 'yAxis' => '50',
                 'width' => '350',
@@ -58,7 +58,7 @@ class KadisController extends Controller
                 ->get('http://103.211.82.154/api/sign/download/' . $sign->headers()['id_dokumen']['0']);
             $filename = substr($dokumen->pdf,0,-4).'_sign'.'.pdf';
             Storage::disk('public')->put($filename, $response);
-            $response->move(public_path() . '/storage', $filename);
+            $response->move(public_path() . '/sign', $filename);
             $dokumen->status = 'Dokumen Disetujui';
             $dokumen->save();
             return redirect()->back()->with('Sukses', 'Dokumen sudah terverifikasi');
